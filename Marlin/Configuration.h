@@ -1838,7 +1838,8 @@
  *     O-- FRONT --+
  */
 #if ENABLED(KNUTWURST_BLTOUCH)
-  #define NOZZLE_TO_PROBE_OFFSET { -2, -25, -0.4 } // https://www.thingiverse.com/thing:2824005
+  #define NOZZLE_TO_PROBE_OFFSET { 10, -54, 0 } //dsl 4MAXP2, ZOffset will be calculated using Special Menu Auto Level Probe and Nozzle Dn
+  //dsl #define NOZZLE_TO_PROBE_OFFSET { -2, -25, -0.4 } // https://www.thingiverse.com/thing:2824005
   // #define NOZZLE_TO_PROBE_OFFSET { 29, -15, 0 } //X-Carriage
 #endif
 
