@@ -386,7 +386,7 @@ void AnycubicTouchscreenClass::HandleSpecialMenu() {
   
   else if ((strcasestr_P(currentTouchscreenSelection, PSTR(SM_LOAD_LAST_L)) != NULL) ||
              (strcasestr_P(currentTouchscreenSelection, PSTR(SM_LOAD_LAST_S)) != NULL)) {
-    SERIAL_ECHOLNPGM("Special Menu: Load FW Defaults");
+    SERIAL_ECHOLNPGM("Special Menu: Load Last");
 
     injectCommands(F("M501")); // load Memory from Last stored EEPROM
     ENTER_MENU_SOUND //dsl
@@ -541,7 +541,7 @@ void AnycubicTouchscreenClass::HandleSpecialMenu() {
            (strcasestr_P(currentTouchscreenSelection, PSTR(SM_TEST_NOZ_UP_S)) != NULL)) { //dsl
     SERIAL_ECHOLNPGM("Special Menu: Test Menu: Nozzle Up"); //dsl
 
-    injectCommands(F("G91\nG1 F400 Z0.02"));  //dsl Relative mode, Move +0.02mm, Absolute mode
+    injectCommands(F("G91\nG1 F400 Z0.02\nG90"));  //dsl Relative mode, Move +0.02mm, Absolute mode
     setZOffset_mm(getZOffset_mm() + 0.02F);   //dsl Update the zoffset variable and display   
 
     
@@ -551,7 +551,7 @@ void AnycubicTouchscreenClass::HandleSpecialMenu() {
            (strcasestr_P(currentTouchscreenSelection, PSTR(SM_TEST_NOZ_DN_S)) != NULL)) { //dsl
     SERIAL_ECHOLNPGM("Special Menu: Test Menu: Nozzle Down"); //dsl
 
-    injectCommands(F("G91\nG1 F400 Z-0.02"));  //dsl Relative mode, Move -0.02mm, Absolute mode
+    injectCommands(F("G91\nG1 F400 Z-0.02\nG90"));  //dsl Relative mode, Move -0.02mm, Absolute mode
     setZOffset_mm(getZOffset_mm() - 0.02F);    //dsl Update the zoffset variable and display   
     
      
