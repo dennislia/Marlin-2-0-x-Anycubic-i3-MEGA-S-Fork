@@ -541,7 +541,7 @@ void AnycubicTouchscreenClass::HandleSpecialMenu() {
            (strcasestr_P(currentTouchscreenSelection, PSTR(SM_TEST_NOZ_UP_S)) != NULL)) { //dsl
     SERIAL_ECHOLNPGM("Special Menu: Test Menu: Nozzle Up"); //dsl
 
-    injectCommands(F("G91\nG1 F400 Z0.02\nG90"));  //dsl Relative mode, Move +0.02mm, Absolute mode
+    injectCommands(F("M211 S0\nG91\nG1 F400 Z0.02\nG90\nM211 S1"));  //dsl disable endstops, Relative mode, Move +0.02mm, Absolute mode, enable endstops
     setZOffset_mm(getZOffset_mm() + 0.02F);   //dsl Update the zoffset variable and display   
 
     
@@ -551,7 +551,7 @@ void AnycubicTouchscreenClass::HandleSpecialMenu() {
            (strcasestr_P(currentTouchscreenSelection, PSTR(SM_TEST_NOZ_DN_S)) != NULL)) { //dsl
     SERIAL_ECHOLNPGM("Special Menu: Test Menu: Nozzle Down"); //dsl
 
-    injectCommands(F("G91\nG1 F400 Z-0.02\nG90"));  //dsl Relative mode, Move -0.02mm, Absolute mode
+    injectCommands(F("M211 S0\nG91\nG1 F400 Z-0.02\nG90\nM211 S"));  //dsl disable endstops, Relative mode, Move -0.02mm, Absolute mode, enable endstops
     setZOffset_mm(getZOffset_mm() - 0.02F);    //dsl Update the zoffset variable and display   
     
      
